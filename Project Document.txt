@@ -6,3 +6,8 @@ sudo npm install -g serve
 serve -s build
 
 npm i json-server
+package.json file:
+"server": "json-server --watch db.json --port 5000"
+npm run server 
+
+npm i react-router-dom
