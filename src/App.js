@@ -10,7 +10,12 @@ import AddTask from './component/AddTask';
 import Footer from './component/Footer';
 
 import About from './component/About';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Router, Routes } from 'react-router-dom';
+import CardHeader from './component/CartHeader';
+import CartHeader from './component/CartHeader';
+import Home from './component/Home';
+import Cart from './component/Cart';
+
 
 function App() {
     const [showAddTask, setShowAddTask] = useState(false)
@@ -109,23 +114,26 @@ function App() {
 
 
     return (
-        <div className="container">
+            <div>
+            <BrowserRouter>
+                <CartHeader />
+            <Routes>
+                
+                <Route exact path="/" element={<Home />} />
+                <Route path="/cart" element={<Cart />} />
+
+            </Routes>
+            
+        {/*<div className="container">
+           
           <Header onAdd={() => setShowAddTask(!showAddTask)} showAddTask={showAddTask} />
           {showAddTask && < AddTask onAdd={addTask} />}
           {tasks.length > 0 ? < Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : 'No Tasks To Show' }
-            {/*<BrowserRouter>
-                <Routes>
-                    <Route path='/' exact render={(props) => (
-                        <>
-
-                         </>
-                    )}  />
-                    <Route path='/about' element={<About />} />
-                </Routes>
-
-            </BrowserRouter>*/}
             <Footer />
+            </div>*/}
+            </BrowserRouter>
         </div>
+        
   );
 }
 

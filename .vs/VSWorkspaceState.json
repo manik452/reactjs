@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\public",
     "\\src",
-    "\\src\\component"
+    "\\src\\component",
+    "\\src\\context"
   ],
-  "SelectedNode": "\\src\\component\\Tasks.js",
+  "SelectedNode": "\\src\\context\\Contex.js",
   "PreviewInSolutionExplorer": false
 }

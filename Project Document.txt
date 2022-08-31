@@ -1,3 +1,4 @@
+npm init react-app ./my-react-app
 npm start
 npm i react-icons
 npm audit fix --force
@@ -11,3 +12,17 @@ package.json file:
 npm run server 
 
 npm i react-router-dom
+
+
+npm install faker
+npm uninstall faker
+
+npm install @faker-js/faker
+
+npm install react-bootstrap bootstrap@4.6.0
+npm install react-bootstrap bootstrap@2.5.0
+###############################################
+TODO Read Below Details
+https://www.npmjs.com/package/axios-rate-limit
+sanitize the user input react js
+Add a role-based authentication mechanism to your react code
