@@ -15,7 +15,7 @@ root.render(
                     <Route path='/*' element={<App/> } />
                 </Routes>
         </Router>*/}
-       {/* <Router>
+        {/* <Router>
             <Routes>
                 <Route path="/" element={<App />}>
                 </Route>
@@ -24,8 +24,8 @@ root.render(
         <Contex>
             <App />
         </Contex>
-  
-  </React.StrictMode> 
+
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a functi

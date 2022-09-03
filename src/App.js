@@ -10,11 +10,12 @@ import AddTask from './component/AddTask';
 import Footer from './component/Footer';
 
 import About from './component/About';
-import { BrowserRouter, Route, Link, Router, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CardHeader from './component/CartHeader';
 import CartHeader from './component/CartHeader';
 import Home from './component/Home';
 import Cart from './component/Cart';
+import PageNotFound from './component/PageNotFound';
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
     const fetchTasks = async () => {
         const res = await fetch('http://localhost:5000/tasks')
         const data = await res.json();
-       
+
         return data
     }
     //Fetch Task from server
@@ -58,7 +59,7 @@ function App() {
         const res = await fetch('http://localhost:5000/tasks', {
             method: 'POST',
             headers: {
-                'Content-type':'application/json'
+                'Content-type': 'application/json'
             },
             body: JSON.stringify(task)
         })
@@ -91,19 +92,19 @@ function App() {
         } : task))
     }
     // Add Task
-   /* const addTask = (task) => {
-        console.log(task)
-        const id = Math.floor(Math.random() * 1000) + 1
-        console.log('id='+id)
-        const newTask = { id, ...task }
-        setTasks([...tasks, newTask]);
-
-    }*/
+    /* const addTask = (task) => {
+         console.log(task)
+         const id = Math.floor(Math.random() * 1000) + 1
+         console.log('id='+id)
+         const newTask = { id, ...task }
+         setTasks([...tasks, newTask]);
+ 
+     }*/
     // Delete Task
-   /* const deleteTask = (id) => {
-        setTasks(tasks.filter((task)=> task.id !== id))
-
-    }*/
+    /* const deleteTask = (id) => {
+         setTasks(tasks.filter((task)=> task.id !== id))
+ 
+     }*/
 
     //Toggle Remainder
     /*const toggleReminder = (id) => {
@@ -114,17 +115,20 @@ function App() {
 
 
     return (
-            <div>
+        <div>
             <BrowserRouter>
                 <CartHeader />
-            <Routes>
-                
-                <Route exact path="/" element={<Home />} />
-                <Route path="/cart" element={<Cart />} />
 
-            </Routes>
-            
-        {/*<div className="container">
+                <Routes>
+                    <Route exact path="/" element={<Home />} />
+                    <Route exact path="/cart" element={<Cart />} />
+                    <Route element={<PageNotFound />} />
+                </Routes>
+
+
+
+
+                {/*<div className="container">
            
           <Header onAdd={() => setShowAddTask(!showAddTask)} showAddTask={showAddTask} />
           {showAddTask && < AddTask onAdd={addTask} />}
@@ -133,8 +137,8 @@ function App() {
             </div>*/}
             </BrowserRouter>
         </div>
-        
-  );
+
+    );
 }
 
 /*class App extends React.Component {

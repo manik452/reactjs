@@ -9,11 +9,11 @@ const Rating = ({ rating, onClick, style }) => {
                         {rating > i ? (
                             <AiFillStar fontSize="15px" />) :
                             (<AiOutlineStar fontSize="15px" />
-                                )}
+                            )}
                     </span>
 
-            ))}
+                ))}
         </>
-        )
+    )
 }
 export default Rating;

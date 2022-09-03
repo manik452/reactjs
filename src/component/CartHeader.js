@@ -4,32 +4,33 @@ import { FaShoppingCart } from "react-icons/fa";
 import { CartState } from "../context/Contex";
 import { AiFillDelete } from "react-icons/ai";
 
+
 const CartHeader = () => {
-    const { state: { cart }, dispatch,productDispatch }= CartState();
+    const { state: { cart }, dispatch, productDispatch } = CartState();
     return (
-        <Navbar bg="dark" variant="dark" style={{height: 80 }}>
+        <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
             <Container>
                 <Navbar.Brand>
                     <Link to="/"> Shopping Cart
                     </Link>
                 </Navbar.Brand>
-                    <Navbar.Text className='search'>
+                <Navbar.Text className='search'>
                     <FormControl style={{ width: 500 }} onChange={(e) => {
                         productDispatch({
                             type: "FILTER_BY_SEARCH",
                             payload: e.target.value
                         })
-                    } }
-                            placeholder='Search a product' className="m-auto"/>
-                    </Navbar.Text>
-                    <Nav>
-                        <Dropdown >
-                            <Dropdown.Toggle variant="success">
-                                <FaShoppingCart color="white" fontSize="25px" />
+                    }}
+                        placeholder='Search a product' className="m-auto" />
+                </Navbar.Text>
+                <Nav>
+                    <Dropdown >
+                        <Dropdown.Toggle variant="success">
+                            <FaShoppingCart color="white" fontSize="25px" />
                             <Badge>{cart.length}</Badge>
-                            </Dropdown.Toggle>
+                        </Dropdown.Toggle>
                         <Dropdown.Menu style={{ minWidth: 370 }}>
-                            
+
                             {cart.length > 0 ? (
                                 <>
                                     {cart.map(prod => (
@@ -47,23 +48,23 @@ const CartHeader = () => {
                                                 })} />
                                         </span>
                                     ))}
-                                < Link to="/cart">
+                                    < Link to="/cart">
                                         <Button style={{ width: "95%", margin: "0 10px" }}>
-                                        Go To Cart
-                                     </Button>
-                                 </Link>
-                            </>
-                            
-                            ): (
-                                    <span style = {{ padding: 10 }}> Cart is Empty!</span>
-                                )
+                                            Go To Cart
+                                        </Button>
+                                    </Link>
+                                </>
+
+                            ) : (
+                                <span style={{ padding: 10 }}> Cart is Empty!</span>
+                            )
 
                             }
-                               
-                            </Dropdown.Menu>
-                        </Dropdown>
-                    </Nav>
-               
+
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </Nav>
+
             </Container>
         </Navbar>
     )

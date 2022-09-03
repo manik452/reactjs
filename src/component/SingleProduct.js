@@ -17,7 +17,7 @@ const SingleProduct = ({ prod }) => {
                     <Card.Subtitle style={{ paddingBottom: 10 }}>
                         <span>Tk {prod.price.split(".")[0]} </span>
                         {prod.fastDelivery ? (<div> Fast Delivery </div>) : (<div> 4 days Delivery </div>)}
-                        <Rating rating={prod.ratings}  style={{ cursor: "pointer" }} />
+                        <Rating rating={prod.ratings} style={{ cursor: "pointer" }} />
                     </Card.Subtitle>
                     {cart.some(p => p.id === prod.id) ? (
                         <Button variant="danger" onClick={() => {
@@ -26,22 +26,22 @@ const SingleProduct = ({ prod }) => {
                                 payload: prod
                             })
                         }} >Remove From Cart</Button>
-                        ) : (
-                            <Button disabled={!prod.inStock} onClick={() => {
-                                dispatch({
-                                    type: "ADD_TO_CART",
-                                    payload: prod
-                                })
-                            } } >{!prod.inStock ? "Out of Stock" : "Add to Cart"}</Button>
+                    ) : (
+                        <Button disabled={!prod.inStock} onClick={() => {
+                            dispatch({
+                                type: "ADD_TO_CART",
+                                payload: prod
+                            })
+                        }} >{!prod.inStock ? "Out of Stock" : "Add to Cart"}</Button>
 
                     )}
-                   
-                    
+
+
                 </Card.Body>
             </Card>
-            
+
         </div>
-         
-        )
+
+    )
 }
 export default SingleProduct;

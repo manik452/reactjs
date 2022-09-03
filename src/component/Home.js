@@ -10,13 +10,13 @@ const Home = () => {
             byFastDelivery,
             byRating,
             sort,
-            searchQuery        }
+            searchQuery }
     } = CartState();
 
     const transformProducts = () => {
         let sortedProducts = products;
         if (sort) {
-            sortedProducts = sortedProducts.sort((a, b) => 
+            sortedProducts = sortedProducts.sort((a, b) =>
                 sort === "lowToHigh" ? a.price - b.price : b.price - a.price
             );
         }
@@ -39,9 +39,8 @@ const Home = () => {
             <Filters />
             <div className="productContainer">
                 {transformProducts().map((prod) => {
-                return <SingleProduct prod={prod} />
-                
-            })}
+                    return <SingleProduct prod={prod} />
+                })}
             </div>
         </div>
     )
