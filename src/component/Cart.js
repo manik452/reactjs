@@ -6,6 +6,7 @@ import { AiFillDelete } from "react-icons/ai";
 
 const Cart = () => {
     const {
+        auth,
         state: { cart },
         dispatch,
     } = CartState();
@@ -17,6 +18,8 @@ const Cart = () => {
     return (
         <div className="home">
             <div className="productContainer">
+                <h1>Welcome{auth.user}</h1>
+
                 <ListGroup>
                     {
                         cart.map(prod => (

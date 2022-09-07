@@ -1,11 +1,12 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 import { faker } from '@faker-js/faker';
 import { cartReducer, productReducer } from "./Reducers";
 
 const Cart = createContext();
 faker.seed(99);
 const Context = ({ children }) => {
-    const products = [...Array(200)].map(() => ({
+    const [auth, setAuth] = useState({});
+    const products = [...Array(2000)].map(() => ({
         id: faker.datatype.uuid(),
         name: faker.commerce.productName(),
         price: faker.commerce.price(),
@@ -27,7 +28,7 @@ const Context = ({ children }) => {
         searchQuery: "",
     })
     return (
-        <Cart.Provider value={{ state, dispatch, productState, productDispatch }}>
+        <Cart.Provider value={{ auth, setAuth, state, dispatch, productState, productDispatch }}>
             {children}
         </Cart.Provider>
     )

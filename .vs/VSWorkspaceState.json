@@ -4,8 +4,9 @@
     "\\public",
     "\\src",
     "\\src\\component",
+    "\\src\\component\\login",
     "\\src\\context"
   ],
-  "SelectedNode": "\\src\\component\\Cart.js",
+  "SelectedNode": "\\src\\component\\Login.js",
   "PreviewInSolutionExplorer": false
 }

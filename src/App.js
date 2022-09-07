@@ -16,6 +16,8 @@ import CartHeader from './component/CartHeader';
 import Home from './component/Home';
 import Cart from './component/Cart';
 import PageNotFound from './component/PageNotFound';
+import Login from './component/login/Login';
+import SignupAndLogin from './component/login/SignupAndLogin';
 
 
 function App() {
@@ -122,6 +124,7 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<Home />} />
                     <Route exact path="/cart" element={<Cart />} />
+                    <Route exact path="/login" element={<Login />} />
                     <Route element={<PageNotFound />} />
                 </Routes>
 
