@@ -37,8 +37,6 @@ const Home = () => {
         }
         return sortedProducts;
     }
-
-
     /*new Array(1000).fill().map((value, index) => (({
         id: index,
         title: faker.lorem.words(5),
@@ -46,7 +44,6 @@ const Home = () => {
     })))*/
     const [pagination, setPagination] = useState({
         data: transformProducts(),
-        changeProductState: productState,
         offset: 0,
         numberPerPage: 9,
         pageCount: 0,
@@ -61,7 +58,7 @@ const Home = () => {
             pageCount: prevState.data.length / prevState.numberPerPage,
             currentData: prevState.data.slice(pagination.offset, pagination.offset + pagination.numberPerPage)
         }))
-    }, [pagination.numberPerPage, pagination.offset, changeProductState])
+    }, [pagination.numberPerPage, pagination.offset])
     const handlePageClick = event => {
         const selected = event.selected;
         const offset = selected * pagination.numberPerPage
