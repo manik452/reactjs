@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import Welcome from './Welcome';
 import ShoppingList from './ShoppingList';
 import Header from './component/Header';
 import * as React from 'react';
@@ -18,6 +17,12 @@ import Cart from './component/Cart';
 import PageNotFound from './component/PageNotFound';
 import Login from './component/login/Login';
 import SignupAndLogin from './component/login/SignupAndLogin';
+import Users from './component/login/Users';
+import Layout from './component/Layout';
+import LoginTest from './features/auth/Login';
+import Welcome from './features/auth/Welcome';
+import RequireAuth from './features/auth/RequireAuth';
+import UsersList from './features/users/UsersList';
 
 
 function App() {
@@ -122,10 +127,18 @@ function App() {
                 <CartHeader />
 
                 <Routes>
-                    <Route exact path="/" element={<Home />} />
-                    <Route exact path="/cart" element={<Cart />} />
-                    <Route exact path="/login" element={<Login />} />
-                    <Route element={<PageNotFound />} />
+                    <Route path="/" element={<Layout />}>
+
+                        <Route exact path="/" element={<Home />} />
+                        <Route exact path="/cart" element={<Cart />} />
+                        <Route exact path="/login" element={<LoginTest />} />
+                        <Route exact path="/users" element={<Users />} />
+                        
+                        <Route element={<RequireAuth />} >
+                            <Route exact path="/welcome" element={<Welcome />} />
+                            <Route exact path="/userList" element={<UsersList />} />
+                        </Route>
+                    </Route>
                 </Routes>
 
 

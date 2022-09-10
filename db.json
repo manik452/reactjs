@@ -18,5 +18,33 @@
       "reminder": true,
       "id": 24
     }
-  ]
+  ],
+  "refresh": {
+    "data": {
+      "user": "Jane",
+      "pwd": "24ere",
+      "accessToken": "kldfglkerwhjnfglsertseed",
+      "roles": [
+        5150,
+        4543
+      ]
+    }
+  },
+  "users": {
+    "data": [
+      {
+        "username": "Manik Sarker"
+      },
+      {
+        "username": "Manik Check"
+      },
+      {
+        "username": "Manik Test"
+      }
+    ]
+  },
+  "auth": {
+    "user": "arew",
+    "pwd": "sedre"
+  }
 }

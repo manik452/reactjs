@@ -1,12 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
     "\\src",
-    "\\src\\component",
-    "\\src\\component\\login",
-    "\\src\\context"
+    "\\src\\api",
+    "\\src\\app",
+    "\\src\\app\\api",
+    "\\src\\features",
+    "\\src\\features\\auth",
+    "\\src\\features\\users",
+    "\\src\\types"
   ],
-  "SelectedNode": "\\src\\component\\Login.js",
+  "SelectedNode": "\\src\\api\\axios.js",
   "PreviewInSolutionExplorer": false
 }

@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect, useContext } from 'react';
+import { useDispatch } from 'react-redux'
 import useAuth from '../../hooks/useAuth';
 import { CartState } from "../../context/Contex"
 import { Link, useNavigate, useLocation } from 'react-router-dom';
@@ -57,9 +58,29 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(user, pwd);
-        setUser('');
-        setPwd('');
+
+       /* try {
+            const userData = await useLoginMutation({ user, pwd }).unwrap()
+            dispatch(setCredentials({ ...userData, user }))
+            setUser('');
+            setPwd('');
+            navigate('/cart')
+        } catch (err) {
+            console.log(err);
+            if (!err?.originalStatus) {
+                setErrMsg('No Server Response');
+            } else if (err.originalStatus?.status === 400) {
+                setErrMsg('Missing Username or Password');
+            } else if (err.originalStatus?.status === 401) {
+                setErrMsg('Unauthorized');
+            } else {
+                setErrMsg('Login Failed');
+            }
+            errRef.current.focus();
+        }*/
+
+       
+       
         setSuccess(true);
 
         const accessToken = 'thisisaccesstoken';
