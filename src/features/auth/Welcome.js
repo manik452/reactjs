@@ -1,22 +1,18 @@
 import { useSelector } from "react-redux"
-import { selectCurrentUser, selectCurrentToken } from "./authSlice"
 import { Link } from "react-router-dom"
+import store from "../../app/store"
 
 const Welcome = () => {
-    const user = useSelector(selectCurrentUser)
-    const token = useSelector(selectCurrentToken)
-
-    const welcome = user ? `Welcome ${user}!` : 'Welcome!'
-    const tokenAbbr = `${token}...`
-
+    const storeData = store.getState().login;
+    const welcome = storeData.user ? `Welcome ${storeData.user}!` : 'Welcome!'
+    console.log("welcome Token is: " + storeData.accessToken);
     const content = (
         <section className="welcome">
             <h1>{welcome}</h1>
-            <p>Token: {tokenAbbr}</p>
+            <p>Token: {storeData.accessToken}</p>
             <p><Link to="/userList">Go to the Users List</Link></p>
         </section>
     )
-
     return content
 }
 export default Welcome

@@ -19,11 +19,16 @@ import Login from './component/login/Login';
 import SignupAndLogin from './component/login/SignupAndLogin';
 import Users from './component/login/Users';
 import Layout from './component/Layout';
-import LoginTest from './features/auth/Login';
 import Welcome from './features/auth/Welcome';
 import RequireAuth from './features/auth/RequireAuth';
 import UsersList from './features/users/UsersList';
+import AuthLogin from './features/auth/AuthLogin';
 
+const ROLES = {
+    'User': 201,
+    'Editor': 1984,
+    'Admin': 5150
+}
 
 function App() {
     const [showAddTask, setShowAddTask] = useState(false)
@@ -40,17 +45,17 @@ function App() {
 
     //Fetch Task from server
     const fetchTasks = async () => {
-        const res = await fetch('http://localhost:5000/tasks')
+        /*const res = await fetch('http://localhost:5000/tasks')
         const data = await res.json();
 
-        return data
+        return data*/
     }
     //Fetch Task from server
     const fetchTask = async (id) => {
-        const res = await fetch(`http://localhost:5000/tasks/${id}`)
+      /*  const res = await fetch(`http://localhost:5000/tasks/${id}`)
         const data = await res.json();
 
-        return data
+        return data*/
     }
     // Delete Task server
     const deleteTask = async (id) => {
@@ -131,10 +136,10 @@ function App() {
 
                         <Route exact path="/" element={<Home />} />
                         <Route exact path="/cart" element={<Cart />} />
-                        <Route exact path="/login" element={<LoginTest />} />
+                        <Route exact path="/login" element={<AuthLogin />} />
                         <Route exact path="/users" element={<Users />} />
                         
-                        <Route element={<RequireAuth />} >
+                        <Route element={<RequireAuth allowedRoles={[ROLES.User] } />} >
                             <Route exact path="/welcome" element={<Welcome />} />
                             <Route exact path="/userList" element={<UsersList />} />
                         </Route>

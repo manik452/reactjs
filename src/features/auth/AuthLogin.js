@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { setCredentials } from './authSlice'
 import { useLoginMutation } from './authApiSlice'
 
-const LoginTest = () => {
+const AuthLogin = () => {
     const userRef = useRef()
     const errRef = useRef()
     const [user, setUser] = useState('')
@@ -29,6 +29,7 @@ const LoginTest = () => {
 
         try {
             const userData = await login({ user, pwd }).unwrap()
+
             dispatch(setCredentials({ ...userData, user }))
             setUser('')
             setPwd('')
@@ -85,4 +86,4 @@ const LoginTest = () => {
 
     return content
 }
-export default LoginTest
+export default AuthLogin

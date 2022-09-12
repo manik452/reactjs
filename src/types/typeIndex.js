@@ -1,9 +1,9 @@
 export interface AppState {
     user: {
         accessToken: string;
-        isAdmin: boolean;
         refreshToken: string;
         username: string;
+        roles: string;
     } | null;
     username: string;
     password: string;

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Container, Dropdown, FormControl, Navbar, Nav, Badge, img, Button } from "react-bootstrap";
+import { Container, Dropdown, FormControl, Navbar, Nav, Badge, img, Button, NavDropdown } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { CartState } from "../context/Contex";
 import { AiFillDelete } from "react-icons/ai";
@@ -14,6 +14,23 @@ const CartHeader = () => {
                     <Link to="/"> Shopping Cart
                     </Link>
                 </Navbar.Brand>
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link href="/cart">Cart</Nav.Link>
+                        <Nav.Link href="/welcome">Authorized</Nav.Link>
+                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                            <NavDropdown.Item to="#action/3.1">Action</NavDropdown.Item>
+                            <NavDropdown.Item to="#action/3.2">
+                                Another action
+                            </NavDropdown.Item>
+                            <NavDropdown.Item to="#action/3.3">Something</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item to="#action/3.4">
+                                Separated link
+                            </NavDropdown.Item>
+                        </NavDropdown>
+                    </Nav>
+                </Navbar.Collapse>
                 <Navbar.Text className='search'>
                     <FormControl style={{ width: 500 }} onChange={(e) => {
                         productDispatch({

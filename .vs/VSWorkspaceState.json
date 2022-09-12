@@ -2,14 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\api",
     "\\src\\app",
     "\\src\\app\\api",
     "\\src\\features",
     "\\src\\features\\auth",
     "\\src\\features\\users",
+    "\\src\\hooks",
+    "\\src\\route",
     "\\src\\types"
   ],
-  "SelectedNode": "\\src\\api\\axios.js",
+  "SelectedNode": "\\src\\features\\auth\\RequireAuth.js",
   "PreviewInSolutionExplorer": false
 }

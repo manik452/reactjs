@@ -24,6 +24,9 @@ npm install --save  axios --legacy-peer-deps
 npm install axios
 npm i @reduxjs/toolkit --legacy-peer-deps
 npm i react-redux --legacy-peer-deps
+npm i redux-persist --legacy-peer-deps
+npm i redux-thunk --legacy-peer-deps
+npm i redux-logger  --legacy-peer-deps
 
 npm install react-bootstrap bootstrap@4.6.0
 npm install react-bootstrap bootstrap@2.5.0
