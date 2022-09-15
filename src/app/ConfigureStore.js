@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk'
+import logger from 'redux-logger'
 /*import LoginReducer from './reducers/LoginReducer';*/
 import authReducer from "../features/auth/authSlice";
 const ConfigureStore = () => {
@@ -14,9 +15,20 @@ const ConfigureStore = () => {
         sessionStorage.setItem("master_class", JSON.stringify({ ...stateToSave }))
         return next(action);
     }
-    const rootReducer = combineReducers({
-        login: authReducer,
+
+    const appReducer = combineReducers({
+        auth: authReducer,
     });
-    return createStore(rootReducer, intialState, applyMiddleware(thunk, saver));
+    const rootReducer = (state, action) => {
+        if (action.type == 'USER_LOGOUT') {
+            sessionStorage.removeItem("master_class");
+            
+            return appReducer(undefined, action)
+        }
+        return appReducer(state, action)
+    };
+    const middleware = [thunk, saver, logger];
+    return createStore(rootReducer, intialState, applyMiddleware(...middleware));
 }
+
 export default ConfigureStore;

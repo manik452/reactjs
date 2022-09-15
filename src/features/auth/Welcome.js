@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import store from "../../app/store"
 
 const Welcome = () => {
-    const storeData = store.getState().login;
+    const storeData = store.getState().auth;
     const welcome = storeData.user ? `Welcome ${storeData.user}!` : 'Welcome!'
     console.log("welcome Token is: " + storeData.accessToken);
     const content = (

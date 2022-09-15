@@ -11,19 +11,20 @@ const RequireAuth = ({ allowedRoles }) => {
     /*const accessToken = useSelector(selectCurrentAccessToken)
     const roles = useSelector(selectCurrentRoles)*/
     console.log("Sotre require AUth" + storeData);
-    const accessToken = storeData.login.accessToken;
-    const roles = storeData.login.roles;
-    const authStore = storeData.login;
-    console.log("token Is:" + storeData.login.accessToken);
-    console.log("roles Is:" + storeData.login.roles);
+    const accessToken = storeData.auth.accessToken;
+    const roles = storeData.auth.roles;
+    const authStore = storeData.auth;
+    console.log("token Is:" + storeData.auth.accessToken);
+    console.log("roles Is:" + storeData.auth.roles);
     console.log(accessToken);
     return (
-        Array.isArray(authStore.roles) ? authStore.roles.find(role => allowedRoles?.includes(role))
+        Array.isArray(authStore.roles) && authStore.roles.find(role => allowedRoles?.includes(role))
             ? <Outlet />
-            : authStore.user
-                ? <Navigate to="/unauthorized" state={{ from: location }} replace />
-                : <Navigate to="/login" state={{ from: location }} replace />
-            : <Navigate to="/login" state={{ from: location }} replace />
+            : accessToken == null || accessToken == "" 
+                ? <Navigate to="/login" state={{ from: location }} replace />
+                : <Navigate to="/unauthorized" state={{ from: location }} replace />
+            
+            
         /*roles?.find(role => allowedRoles?.includes(role))
             ? <Outlet />
             : accessToken !=="" //changed from user to accessToken to persist login after refresh

@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\ES6",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\api",
+    "\\src\\context",
     "\\src\\features",
     "\\src\\features\\auth",
-    "\\src\\features\\users",
     "\\src\\hooks",
     "\\src\\route",
     "\\src\\types"
   ],
-  "SelectedNode": "\\src\\features\\auth\\RequireAuth.js",
+  "SelectedNode": "\\ES6\\playground.js",
   "PreviewInSolutionExplorer": false
 }

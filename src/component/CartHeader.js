@@ -3,10 +3,28 @@ import { Container, Dropdown, FormControl, Navbar, Nav, Badge, img, Button, NavD
 import { FaShoppingCart } from "react-icons/fa";
 import { CartState } from "../context/Contex";
 import { AiFillDelete } from "react-icons/ai";
+import { logOut } from "../features/auth/authSlice";
+import store from "../app/store"
+import { useNavigate } from 'react-router-dom'
 
 
 const CartHeader = () => {
+    const USER_LOGOUT = {
+        type: "USER_LOGOUT"
+    }
+    const navigate = useNavigate()
     const { state: { cart }, dispatch, productDispatch } = CartState();
+    const logOutSubmit = async (e) => {
+        console.log(logOut);
+        try {            
+            store.dispatch(USER_LOGOUT, {});
+            console.log("Called User Logout");
+            navigate('/');
+        } catch (err) {
+
+        }
+    }
+
     return (
         <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
             <Container>
@@ -25,8 +43,8 @@ const CartHeader = () => {
                             </NavDropdown.Item>
                             <NavDropdown.Item to="#action/3.3">Something</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item to="#action/3.4">
-                                Separated link
+                            <NavDropdown.Item onClick={logOutSubmit}>
+                                Logout
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>

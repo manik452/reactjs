@@ -6,7 +6,6 @@ import { AiFillDelete } from "react-icons/ai";
 
 const Cart = () => {
     const {
-        auth,
         state: { cart },
         dispatch,
     } = CartState();
@@ -18,7 +17,6 @@ const Cart = () => {
     return (
         <div className="home">
             <div className="productContainer">
-                <h1>Welcome{auth.user}</h1>
 
                 <ListGroup>
                     {
@@ -26,9 +24,9 @@ const Cart = () => {
                             <ListGroup.Item key={prod.id}>
                                 <Row>
                                     <Col md={2}>
-                                        <Image src={prod.image} alt={prod.name } fluid rounded />
+                                        <Image src={prod.image} alt={prod.name} fluid rounded />
                                     </Col>
-                                    <Col md={2 }>
+                                    <Col md={2}>
                                         <span>{prod.name}</span>
                                     </Col>
                                     <Col md={2}>
@@ -48,20 +46,20 @@ const Cart = () => {
                                         })} >
                                             {[...Array(prod.inStock).keys()].map((x) => (
                                                 <option key={x + 1}> {x + 1}</option>
-                                                ))}
+                                            ))}
                                         </Form.Control>
                                     </Col>
                                     <Col md={2}>
-                                    <AiFillDelete fontSize="20px"
-                                        style={{ cursor: "pointer" }}
-                                        onClick={() => dispatch({
-                                            type: "REMOVE_FROM_CART",
-                                            payload: prod
-                                        })} />
+                                        <AiFillDelete fontSize="20px"
+                                            style={{ cursor: "pointer" }}
+                                            onClick={() => dispatch({
+                                                type: "REMOVE_FROM_CART",
+                                                payload: prod
+                                            })} />
                                     </Col>
                                 </Row>
                             </ListGroup.Item>
-                            
+
                         ))
                     }
                 </ListGroup>

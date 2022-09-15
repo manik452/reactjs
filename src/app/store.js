@@ -1,17 +1,19 @@
 import  configureStore  from "./ConfigureStore";
 import { apiSlice } from "./api/apiSlice";
 import authReducer from "../features/auth/authSlice";
-import logger from 'redux-logger'
-import thunkMiddleware from 'redux-thunk'
 
+import thunkMiddleware from 'redux-thunk'
+/*import { configureStore } from '@reduxjs/toolkit'*/
+
+/**/
+/*auth: authReducer*/
 
 export const store = configureStore({
     reducer: {
         [apiSlice.reducerPath]: apiSlice.reducer,
-        auth: authReducer
     },
     middleware: getDefaultMiddleware =>
-        getDefaultMiddleware().concat(apiSlice.middleware).concat(logger).concat(thunkMiddleware),
+        getDefaultMiddleware().concat(apiSlice.middleware),
     devTools: true
 })
 
