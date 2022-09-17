@@ -3,14 +3,9 @@
     "",
     "\\ES6",
     "\\src",
-    "\\src\\app",
-    "\\src\\context",
-    "\\src\\features",
-    "\\src\\features\\auth",
-    "\\src\\hooks",
-    "\\src\\route",
-    "\\src\\types"
+    "\\src\\component\\login",
+    "\\src\\features\\cart"
   ],
-  "SelectedNode": "\\ES6\\playground.js",
+  "SelectedNode": "\\src\\App.js",
   "PreviewInSolutionExplorer": false
 }

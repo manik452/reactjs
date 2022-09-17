@@ -55,13 +55,13 @@ const Home = () => {
         setPagination((prevState) => ({
             ...prevState,
             data: transformProducts(),
-            pageCount: prevState.data.length / prevState.numberPerPage,
+            pageCount: Math.ceil(prevState.data.length / prevState.numberPerPage),
             currentData: prevState.data.slice(pagination.offset, pagination.offset + pagination.numberPerPage)
         }))
     }, [pagination.numberPerPage, pagination.offset])
     const handlePageClick = event => {
         const selected = event.selected;
-        const offset = selected * pagination.numberPerPage
+        const offset = selected * pagination.numberPerPage;
         setPagination({ ...pagination, offset })
     }
 
